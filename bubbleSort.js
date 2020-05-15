@@ -1,18 +1,22 @@
-const bubbleSort = (arr) => {
-  let stepsCount = arr.length - 1;
+// Функция изменяет входящий массив items
+const bubbleSort = (items) => {
+  let stepsCount = items.length - 1;
   // Объявляем переменную swapped, значение которой показывает был ли
   // совершен обмен элементов во время перебора массива
   let swapped;
+  // do..while цикл. Работает почти идентично while
+  // Разница в проверке. Тут она делается не до выполнения тела, а после.
+  // Такой цикл полезен там, где надо выполнить тело хотя бы раз в любом случае.
   do {
     swapped = false;
     // Перебираем массив и меняем местами элементы, если предыдущий
     // больше, чем следующий
     for (let i = 0; i < stepsCount; i += 1) {
-      if (arr[i] > arr[i + 1]) {
-        // temp – временная перменная для хранения текущего элемента
-        let temp = arr[i];
-        arr[i] = arr[i + 1];
-        arr[i + 1] = temp;
+      if (items[i] > items[i + 1]) {
+        // temp – временная переменная для хранения текущего элемента
+        let temp = items[i];
+        items[i] = items[i + 1];
+        items[i + 1] = temp;
         // Если сработал if и была совершена перестановка,
         // присваиваем swapped значение true
         swapped = true;
@@ -23,7 +27,7 @@ const bubbleSort = (arr) => {
     stepsCount -= 1;
   } while (swapped); // продолжаем, пока swapped === true
 
-  return arr;
+  return items;
 };
 
 console.log(bubbleSort([3, 2, 10, -2, 0])); // => [ -2, 0, 2, 3, 10 ]

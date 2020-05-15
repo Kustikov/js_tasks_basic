@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <javascript>
+<script type="text/javascript">
+const firstCount = (num, percent)=> {
+	const numInPercent = 100 - percent; // цена в процентанх от первоначальной цены;
+	const onePercent = num /numInPercent; // вычисляем 1 процент от числа после скидки 
+	const diffCount = percent * onePercent; // умножаем 1 процент от числа после скидки на сделанную скидку, получаем разницу между первоначально ценой и ценой со скидкой
+	const result = num + diffCount;//прибавляем полученный diffCount к цене со скидкой
+	alert(`Первоначальная цена ${result}`);
+	return result;
+}
+
+let a = prompt('Введите число');
+let b = prompt('Введите процент скидки');
+let point = /,/g;
+a = a.replace(point,".")
+let num = Number(a);
+let percent = Number(b);
+firstCount(num, percent);// 1 - число со скидкой, процент скидки
+</script>
+  </body>
+</html>
+
