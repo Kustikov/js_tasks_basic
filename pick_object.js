@@ -124,6 +124,25 @@ const pick = (data, key) => {
 // END
 export default pick;
 
+//мое второе решение
+// @ts-check
+/* eslint no-restricted-syntax: ["off", "ForOfStatement"] */
+// BEGIN (write your solution here)
+const pick = (data, arr) => {
+	let result = {};
+	const values = Object.entries(data);
+	for (const [key, value] of values) {
+		for (const item of arr) {
+				if (item.includes(key)){
+				console.log(value);	
+				result[key] = value;
+		   }
+		}
+  }
+  return result;
+};
+export default pick;
+//
 
 //решение учителя
 // BEGIN
